@@ -1,7 +1,7 @@
-package dev.moon.agendaapi.agendamento;
+package dev.moon.agendaapi.repos;
 
-import dev.moon.agendaapi.aluno.Aluno;
+import dev.moon.agendaapi.model.Agenda;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AgendaRepository extends JpaRepository<Aluno, Long> {
+public interface AgendaRepository extends JpaRepository<Agenda, Long> {
 }

@@ -1,27 +1,41 @@
-package dev.moon.agendaapi.user;
+package dev.moon.agendaapi.model;
 
-import dev.moon.agendaapi.model.Aluno;
-import dev.moon.agendaapi.model.Status;
-import dev.moon.agendaapi.model.Turno;
 import jakarta.persistence.*;
+import jdk.jfr.Name;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
+@Data
 @Entity
-public record Agenda(
+public class Agenda {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        Long id,
-        Long matriculaAluno,
-        LocalDateTime dataHoraAtendimento,
+        private Long id;
+
+        @Column(name = "matricula_aluno", nullable = false)
+        private Long matriculaAluno;
+
+        @Column(nullable = false)
+        private LocalDateTime dataHoraAtendimento;
+
         @Enumerated(EnumType.STRING)
-        Turno turno,
+        @Column(nullable = false)
+        private Turno turno;
+
         @Enumerated(EnumType.STRING)
-        Status status,
-        LocalDateTime createdAt,
+        @Column(nullable = false)
+        private Status status;
+
+        @Column(nullable = false)
+        private LocalDateTime createdAt;
 
         @ManyToOne
-        @JoinColumn(name = "matriculaAluno", referencedColumnName = "matricula", insertable = false, updatable = false)
-        Aluno aluno
-) {
+        @JoinColumn(name = "matricula_aluno", referencedColumnName = "matricula", insertable = false, updatable = false)
+        private Aluno aluno;
+
+        @PrePersist
+        protected void onCreate() {
+                createdAt = LocalDateTime.now();
+        }
 }

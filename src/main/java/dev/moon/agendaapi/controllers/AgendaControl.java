@@ -1,37 +1,46 @@
-package dev.moon.agendaapi.agenda;
+package dev.moon.agendaapi.controllers;
 
-import dev.moon.agendaapi.aluno.Aluno;
-import dev.moon.agendaapi.repos.AgendaRepository;
-import dev.moon.agendaapi.repos.AlunoRepository;
-import dev.moon.agendaapi.repos.UserAgendaRepository;
+import dev.moon.agendaapi.model.Agenda;
+import dev.moon.agendaapi.service.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/alunos")
+@RequestMapping("/api/agenda")
 public class AgendaControl {
-    private final AlunoRepository alunoRepository;
-    private final AgendaRepository agendaRepository;
-    private final UserAgendaRepository userAgendaRepository;
 
     @Autowired
-    public AgendaControl(AlunoRepository alunoRepository, AgendaRepository agendaRepository, UserAgendaRepository userAgendaRepository) {
-        this.alunoRepository = alunoRepository;
-        this.agendaRepository = agendaRepository;
-        this.userAgendaRepository = userAgendaRepository;
+    private AgendaService agendaService;
+
+    @GetMapping
+    public ResponseEntity<List<Agenda>> findAll() {
+        return ResponseEntity.status(HttpStatus.OK).body(agendaService.findAll());
     }
 
-    @GetMapping("")
-    List<Aluno> getAllAgendas() {
-        return agendaRepository.findAll();
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Agenda>> findById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(agendaService.findById(id));
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("")
-    void createAluno(@Valid @RequestBody Aluno aluno) {
-        alunoRepository.create(aluno);
+    @PostMapping
+    public ResponseEntity<Agenda> create(@RequestBody Agenda agenda) {
+        return ResponseEntity.status(HttpStatus.OK).body(agendaService.save(agenda));
     }
+
+    @PutMapping
+    public ResponseEntity<Agenda> update(@RequestBody Agenda agenda) {
+        return ResponseEntity.status(HttpStatus.OK).body(agendaService.update(agenda));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        agendaService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }

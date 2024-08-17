@@ -1,22 +1,31 @@
-package dev.moon.agendaapi.user;
+package dev.moon.agendaapi.model;
 
-import dev.moon.agendaapi.model.Cargo;
-import dev.moon.agendaapi.model.Aluno;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
-public record UserAgenda(
+@Data
+public class UserAgenda {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        Long id,
-        Long matricula,
+        private Long id;
+
+        @Column(unique = true, nullable = false)
+        private Long matricula;
+
         @Enumerated(EnumType.STRING)
-        Cargo role,
-        LocalDateTime createdAt,
+        private Cargo role;
+
+        private LocalDateTime createdAt;
 
         @OneToOne
         @JoinColumn(name = "matricula", referencedColumnName = "matricula", insertable = false, updatable = false)
-        Aluno aluno
-) { }
+        private Aluno aluno;
+
+        @PrePersist
+        protected void onCreate() {
+                createdAt = LocalDateTime.now();
+        }
+}

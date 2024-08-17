@@ -1,9 +1,7 @@
-package dev.moon.agendaapi.agendamento;
+package dev.moon.agendaapi.repos;
 
-import dev.moon.agendaapi.aluno.Aluno;
+import dev.moon.agendaapi.model.UserAgenda;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserAgendaRepository extends JpaRepository<Aluno, Long> {
+public interface UserAgendaRepository extends JpaRepository<UserAgenda, Long> {
 }

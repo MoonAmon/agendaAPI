@@ -1,4 +1,4 @@
-package dev.moon.agendaapi.aluno;
+package dev.moon.agendaapi.model;
 
 public enum Status {
     previsto,
