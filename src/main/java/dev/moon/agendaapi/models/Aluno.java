@@ -1,8 +1,9 @@
-package dev.moon.agendaapi.model;
+package dev.moon.agendaapi.models;
 
+import dev.moon.agendaapi.models.enums.Curso;
+import dev.moon.agendaapi.models.enums.Turno;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import java.time.LocalDate;
 

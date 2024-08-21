@@ -1,6 +1,6 @@
 package dev.moon.agendaapi.service;
 
-import dev.moon.agendaapi.model.Agenda;
+import dev.moon.agendaapi.models.Agenda;
 
 import java.util.List;
 import java.util.Optional;

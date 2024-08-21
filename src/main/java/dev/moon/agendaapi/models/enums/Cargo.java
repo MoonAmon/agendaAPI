@@ -1,4 +1,4 @@
-package dev.moon.agendaapi.model;
+package dev.moon.agendaapi.models.enums;
 
 public enum Cargo {
     ALUNO,

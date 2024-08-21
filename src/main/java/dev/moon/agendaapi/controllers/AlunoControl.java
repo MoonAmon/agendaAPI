@@ -1,7 +1,8 @@
 package dev.moon.agendaapi.controllers;
 
-import dev.moon.agendaapi.model.Aluno;
+import dev.moon.agendaapi.models.Aluno;
 import dev.moon.agendaapi.service.AlunoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,7 @@ public class AlunoControl {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
-        alunoService.deleteById(id);
+        alunoService.deleteById(id) ;
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 

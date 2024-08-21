@@ -1,7 +1,8 @@
-package dev.moon.agendaapi.model;
+package dev.moon.agendaapi.models;
 
+import dev.moon.agendaapi.models.enums.Status;
+import dev.moon.agendaapi.models.enums.Turno;
 import jakarta.persistence.*;
-import jdk.jfr.Name;
 import lombok.Data;
 
 import java.time.LocalDateTime;

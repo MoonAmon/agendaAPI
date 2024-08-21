@@ -1,6 +1,6 @@
 package dev.moon.agendaapi.controllers;
 
-import dev.moon.agendaapi.model.UserAgenda;
+import dev.moon.agendaapi.models.UserAgenda;
 import dev.moon.agendaapi.service.UserAgendaService;
 
 import org.springframework.beans.factory.annotation.Autowired;

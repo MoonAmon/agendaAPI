@@ -1,5 +1,6 @@
-package dev.moon.agendaapi.model;
+package dev.moon.agendaapi.models;
 
+import dev.moon.agendaapi.models.enums.Cargo;
 import jakarta.persistence.*;
 import lombok.Data;
 

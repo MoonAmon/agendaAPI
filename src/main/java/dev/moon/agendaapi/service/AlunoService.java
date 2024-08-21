@@ -1,7 +1,6 @@
 package dev.moon.agendaapi.service;
 
-import dev.moon.agendaapi.model.Aluno;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import dev.moon.agendaapi.models.Aluno;
 
 import java.util.List;
 import java.util.Optional;

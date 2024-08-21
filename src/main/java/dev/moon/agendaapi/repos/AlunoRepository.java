@@ -1,6 +1,6 @@
 package dev.moon.agendaapi.repos;
 
-import dev.moon.agendaapi.model.Aluno;
+import dev.moon.agendaapi.models.Aluno;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {

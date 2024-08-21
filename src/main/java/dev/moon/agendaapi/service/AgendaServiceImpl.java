@@ -1,6 +1,6 @@
 package dev.moon.agendaapi.service;
 
-import dev.moon.agendaapi.model.Agenda;
+import dev.moon.agendaapi.models.Agenda;
 import dev.moon.agendaapi.repos.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

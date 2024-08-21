@@ -1,6 +1,6 @@
 package dev.moon.agendaapi.controllers;
 
-import dev.moon.agendaapi.model.Agenda;
+import dev.moon.agendaapi.models.Agenda;
 import dev.moon.agendaapi.service.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
